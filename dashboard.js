@@ -106,8 +106,4 @@ function notificationTemplate(item) {
       <div class="small">${new Date(item.time).toLocaleString()} ${item.unread ? '• Unread' : '• Read'}</div>
     </li>
   `;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 4aa1183961d7d50d19c8bac59600b8e76863f00e

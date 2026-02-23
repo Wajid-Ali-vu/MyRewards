@@ -85,8 +85,4 @@ export function openNoticeModal({ title, message }) {
 
 function mountModal(node) {
   document.getElementById('modal-root').appendChild(node);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 4aa1183961d7d50d19c8bac59600b8e76863f00e

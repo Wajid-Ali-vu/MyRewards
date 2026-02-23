@@ -61,8 +61,4 @@ function loanTemplate(loan) {
       <div class="small">Date: ${new Date(loan.date).toLocaleDateString()}</div>
     </li>
   `;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 4aa1183961d7d50d19c8bac59600b8e76863f00e

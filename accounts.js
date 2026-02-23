@@ -91,8 +91,4 @@ function accountTemplate(account) {
       </div>
     </li>
   `;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 4aa1183961d7d50d19c8bac59600b8e76863f00e
