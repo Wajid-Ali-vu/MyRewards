@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <title>MyRewards • Modern Dashboard</title>
+  <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="fontawesome/css/solid.min.css" />
+  <link rel="stylesheet" href="fontawesome/css/regular.min.css" />
+  <link rel="stylesheet" href="fontawesome/css/brands.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!--
+    CHANGE SUMMARY (2026-02):
+    - Complete dashboard UI redesign with responsive sidebar + top navbar.
+    - Added modular architecture: ui.js, accounts.js, dashboard.js, loans.js, sync.js, modals.js.
+    - Added reusable modal engine, multi-account data model, loan filters, notifications center, loading/empty states.
+    - Added roadmap comments across modules for future analytics/theme/chart/cloud onboarding improvements.
+  -->
+
+  <div id="app" class="app-shell">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar__brand">
+        <span class="brand-icon"><i class="fa-solid fa-gem"></i></span>
+        <div>
+          <h1>MyRewards</h1>
+          <p>Smart points manager</p>
+        </div>
+      </div>
+
+      <nav class="sidebar__nav">
+        <button class="nav-link is-active" data-route="dashboard"><i class="fa-solid fa-chart-line"></i>Dashboard</button>
+        <button class="nav-link" data-route="accounts"><i class="fa-solid fa-users"></i>Accounts</button>
+        <button class="nav-link" data-route="activity"><i class="fa-solid fa-clock-rotate-left"></i>Activity</button>
+        <button class="nav-link" data-route="loans"><i class="fa-solid fa-hand-holding-dollar"></i>Loans</button>
+        <button class="nav-link" data-route="settings"><i class="fa-solid fa-gear"></i>Settings</button>
+      </nav>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button id="menu-toggle" class="icon-btn mobile-only" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+        <div class="topbar__brand">Rewards Dashboard</div>
+
+        <div class="topbar__actions">
+          <div class="account-switcher">
+            <label for="accountSwitcher" class="sr-only">Switch account</label>
+            <select id="accountSwitcher"></select>
+          </div>
+
+          <button id="open-notifications" class="icon-btn" aria-label="Notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span id="notificationBadge" class="badge hidden">0</span>
+          </button>
+
+          <details class="profile-menu">
+            <summary>
+              <span class="avatar">MR</span>
+              <span>Profile</span>
+              <i class="fa-solid fa-angle-down"></i>
+            </summary>
+            <div class="profile-menu__content">
+              <button id="openSettingsFromProfile">Settings</button>
+              <button id="clearDataBtn">Reset Local Data</button>
+            </div>
+          </details>
+        </div>
+      </header>
+
+      <main class="content">
+        <section id="dashboardView" class="view is-visible"></section>
+        <section id="accountsView" class="view"></section>
+        <section id="activityView" class="view"></section>
+        <section id="loansView" class="view"></section>
+        <section id="settingsView" class="view"></section>
+      </main>
+    </div>
+  </div>
+
+  <div id="app-loader" class="app-loader hidden"><div class="spinner"></div><p>Loading workspace…</p></div>
+  <div id="toast-container" class="toast-container"></div>
+  <div id="modal-root"></div>
+
+  <script type="module" src="ui.js"></script>
+</body>
+</html>
